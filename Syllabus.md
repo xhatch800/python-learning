@@ -66,40 +66,49 @@ The goal this week is to rewire Java muscle memory into Python syntax.
 
 The goal this week is to stop writing "Java in Python" and start writing real Python.
 
-### [ ] Day 8 — List Comprehensions & Generators
+### [ ] Day 8 — Pythonic Idioms
+> **Living reference** — new idioms discovered after Day 8 is completed are appended here. No need to recheck this day.
+- [ ] Variable swapping without temp: `a, b = b, a`
+- [ ] Chained comparisons: `0 < x < 10`
+- [ ] Ternary expressions: `x if condition else y`
+- [ ] Splat unpacking: `first, *rest = list`
+- [ ] `_` as throwaway variable
+- [ ] Truthiness: `if items`, `if not items`, `if user`
+
+### [ ] Day 9 — List Comprehensions & Generators
 - [ ] `[x*2 for x in nums if x > 0]` vs. Java streams
 - [ ] Generator expressions for memory-efficient iteration
 - [ ] `zip()`, `enumerate()`, `map()`, `filter()`
 
-### [ ] Day 9 — File I/O
+### [ ] Day 10 — File I/O
 - [ ] `open()`, `with` statement (like Java's try-with-resources)
 - [ ] Reading/writing text files and CSVs
 - [ ] `pathlib` — modern file path handling
 
-### [ ] Day 10 — Error Handling
+### [ ] Day 11 — Error Handling
 - [ ] `try / except / finally / else` — similar to Java's `try/catch/finally`
 - [ ] Raising exceptions: `raise ValueError("msg")`
 - [ ] Custom exception classes
 
-### [ ] Day 11 — Modules & Packages
+### [ ] Day 12 — Modules & Packages
 - [ ] `import`, `from x import y`
 - [ ] Organizing code into `.py` files and folders
 - [ ] `pip` — Python's equivalent of Maven/Gradle
 - [ ] Virtual environments: `venv`
 
-### [ ] Day 12 — OOP in Python
+### [ ] Day 13 — OOP in Python
 - [ ] `class`, `__init__` (constructor), `self` (like `this`)
 - [ ] Inheritance, method overriding
 - [ ] `@property` decorator vs. Java getters/setters
 - [ ] No interfaces — use abstract classes (`abc`) or duck typing
 
-### [ ] Day 13 — Functional Python
+### [ ] Day 14 — Functional Python
 - [ ] First-class functions (pass functions as arguments)
 - [ ] `lambda` — like Java lambdas but simpler
 - [ ] `functools`: `reduce`, `partial`
 - [ ] Decorators — like Java annotations but executable
 
-### [ ] Day 14 — Practice + Mocking Basics
+### [ ] Day 15 — Practice + Mocking Basics
 - [ ] Build a small CLI app that models a REST-like resource: e.g. a to-do manager with add/list/delete commands
 - [ ] Focus on writing idiomatic Python, not Java-translated Python
 - [ ] Write tests for your CLI app with `pytest`
@@ -112,7 +121,7 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 
 ## Week 3 — Standard Library & Ecosystem
 
-### [ ] Day 15–16 — Key Standard Library Modules
+### [ ] Day 16–17 — Key Standard Library Modules
 - [ ] `os`, `sys` — system/env interaction
 - [ ] `json` — like Jackson, but built-in
 - [ ] `datetime` — date/time handling
@@ -120,7 +129,7 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `collections` — `Counter`, `defaultdict`, `deque`
 - [ ] `itertools` — advanced iteration utilities
 
-### [ ] Day 17–18 — Data & Scripting + Intermediate Mocking
+### [ ] Day 18–19 — Data & Scripting + Intermediate Mocking
 - [ ] `csv` and `json` file processing
 - [ ] `argparse` — CLI argument parsing
 - [ ] `logging` — like Java's SLF4J/Logback
@@ -130,11 +139,11 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `pytest` fixtures — reusable setup/teardown, like JUnit `@BeforeEach`
 - [ ] Parametrized tests: `@pytest.mark.parametrize` — run same test with multiple inputs
 
-### [ ] Day 19–20 — Concurrency Basics
+### [ ] Day 20–21 — Concurrency Basics
 - [ ] `threading` vs. `multiprocessing` (understand the GIL)
 - [ ] `asyncio` basics — Python's async/await (similar to Java's CompletableFuture)
 
-### [ ] Day 21 — Calling APIs (Authenticated & Unauthenticated)
+### [ ] Day 22 — Calling APIs (Authenticated & Unauthenticated)
 - [ ] Install `requests`: `pip install requests`
 - [ ] Call a public API (e.g. JSONPlaceholder) — basic GET/POST
 - [ ] Call a secured API with an **API key** — pass via header (`Authorization: ApiKey xxx`) or query param
@@ -149,31 +158,31 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 
 > **Java equivalent:** Spring Boot → FastAPI. Same concepts: routing, request/response models, dependency injection, ORM.
 
-### [ ] Day 22 — FastAPI Intro
+### [ ] Day 23 — FastAPI Intro
 - [ ] Install FastAPI + Uvicorn: `pip install fastapi uvicorn`
 - [ ] Create your first endpoint: `@app.get("/")` — like `@GetMapping` in Spring
 - [ ] Run the dev server: `uvicorn main:app --reload` — like Spring Boot's hot reload
 - [ ] Explore auto-generated Swagger UI at `http://localhost:8000/docs` — free, no setup
 
-### [ ] Day 23 — Request & Response Models
+### [ ] Day 24 — Request & Response Models
 - [ ] Define request bodies with `pydantic` — like Java records / DTOs
 - [ ] Path params: `@app.get("/users/{id}")` — like `@PathVariable`
 - [ ] Query params: `def get_users(active: bool = True)` — like `@RequestParam`
 - [ ] Return JSON automatically — no `@ResponseBody` needed
 
-### [ ] Day 24 — SQLAlchemy (ORM)
+### [ ] Day 25 — SQLAlchemy (ORM)
 - [ ] Install: `pip install sqlalchemy`
 - [ ] Define models — like JPA `@Entity`
 - [ ] Connect to SQLite for local dev, Postgres for prod
 - [ ] Basic CRUD: create, read, update, delete — like `JpaRepository`
 
-### [ ] Day 25 — Advanced FastAPI
+### [ ] Day 26 — Advanced FastAPI
 - [ ] Dependency injection: `Depends()` — like Spring's `@Autowired`
 - [ ] Middleware and exception handlers — like `@ControllerAdvice`
 - [ ] Background tasks — like `@Async`
 - [ ] Environment config with `pydantic-settings` — like Spring's `application.properties`
 
-### [ ] Day 25b — Securing Your FastAPI
+### [ ] Day 27 — Securing Your FastAPI
 - [ ] **API key auth** — validate key via `Depends()`, simplest approach for internal services
 - [ ] **JWT auth** — issue and verify tokens with `python-jose`; like Spring Security + JWT filter
 - [ ] **OAuth2 password flow** — FastAPI has built-in `OAuth2PasswordBearer`
@@ -182,7 +191,7 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] Scopes and role-based access — like Spring's `hasRole()`
 - [ ] HTTPS, CORS config — like Spring's `CorsConfigurationSource`
 
-### [ ] Day 26 — Testing & Mocking
+### [ ] Day 28 — Testing & Mocking
 - [ ] `pytest` + FastAPI's `TestClient` — like Spring's `MockMvc`
 - [ ] Write unit tests for endpoints
 - [ ] Test request validation and error responses
@@ -194,13 +203,13 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] Mock external API calls — patch `requests.get` to return a fake response
 - [ ] Mock auth dependencies — override `Depends(get_current_user)` in `TestClient`
 
-### [ ] Day 27 — Project
+### [ ] Day 29 — Project
 - [ ] Build a small REST API: a user/post API with full CRUD + JWT-protected routes
 - [ ] Add a service that calls an external secured API using Bearer token
 - [ ] Use FastAPI + SQLAlchemy + pytest
 - [ ] Structure it as a proper package (routers, models, schemas, db, auth)
 
-### [ ] Day 28 — Review & Gaps
+### [ ] Day 30 — Review & Gaps
 - [ ] Go back and reinforce anything that felt weak
 - [ ] Read: *PEP 8* (Python style guide), *The Zen of Python* (`import this`)
 - [ ] Next steps: refresh token rotation, rate limiting, API gateway patterns
