@@ -66,14 +66,25 @@ The goal this week is to rewire Java muscle memory into Python syntax.
 
 The goal this week is to stop writing "Java in Python" and start writing real Python.
 
-### [ ] Day 8 — Pythonic Idioms
-> **Living reference** — new idioms discovered after Day 8 is completed are appended here. No need to recheck this day.
+### [ ] Day 8 — Pythonic Idioms & Java Developer Gotchas
+> **Living reference** — new idioms and gotchas discovered after Day 8 is completed are appended here. No need to recheck this day.
+
+#### Pythonic Idioms
 - [ ] Variable swapping without temp: `a, b = b, a`
 - [ ] Chained comparisons: `0 < x < 10`
 - [ ] Ternary expressions: `x if condition else y`
 - [ ] Splat unpacking: `first, *rest = list`
 - [ ] `_` as throwaway variable
 - [ ] Truthiness: `if items`, `if not items`, `if user`
+
+#### Java Developer Gotchas
+- [ ] Mutable default arguments — `def f(x=[])` is dangerous; the list persists across calls
+- [ ] `==` vs `is` — `==` compares value (like Java), `is` compares identity (like `==` on object refs)
+- [ ] Integer division — `5 / 2` is `2.5` (not `2`); use `5 // 2` for floor division like Java
+- [ ] `None` is not `0` or `false` — always check `if x is None`, not `if x == None`
+- [ ] No `++` operator — use `x += 1`
+- [ ] Indentation is syntax — a misplaced space breaks your code, no braces to save you
+- [ ] Shadowing built-ins — naming variables `list`, `dict`, `input`, `id` silently breaks things
 
 ### [ ] Day 9 — List Comprehensions & Generators
 - [ ] `[x*2 for x in nums if x > 0]` vs. Java streams
