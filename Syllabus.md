@@ -2,6 +2,7 @@
 
 > **Goal:** Reach Python fluency in ~4 weeks of focused practice (~1–2 hours/day).
 > Your Java background cuts the learning curve significantly — most concepts map directly.
+> **Track: Web Backend** — building REST APIs with FastAPI + SQLAlchemy (equivalent to Spring Boot in Java).
 
 **Progress:** Check off each item as you complete it. Use the day checkboxes to mark full days done.
 
@@ -48,9 +49,15 @@ The goal this week is to rewire Java muscle memory into Python syntax.
 - [ ] Common methods: `.split()`, `.strip()`, `.join()`, `.replace()`
 - [ ] Multi-line strings with triple quotes
 
-### [ ] Day 7 — Practice
-- [ ] Write 3–5 small programs: FizzBuzz, reverse a string, word frequency counter
-- [ ] Rewrite a simple Java program you know in Python
+### [ ] Day 7 — Practice + Intro to pytest
+- [ ] Write FizzBuzz, reverse a string, word frequency counter
+- [ ] Rewrite a simple Java backend utility you know in Python (e.g. a data transformer or validator)
+- [ ] Install pytest: `pip install pytest`
+- [ ] Write your first test file: `test_day07.py` — like a JUnit test class
+- [ ] `def test_something():` — no annotations needed, just the `test_` prefix
+- [ ] `assert` keyword — like JUnit's `assertEquals`, `assertTrue`
+- [ ] Run tests: `pytest` — discovers and runs all `test_*.py` files automatically
+- [ ] Test a pure function end-to-end: input → expected output
 
 ---
 
@@ -91,9 +98,14 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `functools`: `reduce`, `partial`
 - [ ] Decorators — like Java annotations but executable
 
-### [ ] Day 14 — Practice
-- [ ] Build a small CLI app: a to-do list, a text-based quiz, or a file organizer
+### [ ] Day 14 — Practice + Mocking Basics
+- [ ] Build a small CLI app that models a REST-like resource: e.g. a to-do manager with add/list/delete commands
 - [ ] Focus on writing idiomatic Python, not Java-translated Python
+- [ ] Write tests for your CLI app with `pytest`
+- [ ] `unittest.mock.MagicMock` — mock any object or dependency, like `Mockito.mock()`
+- [ ] `@patch("module.function")` — replace a real function with a mock for a test, like `@MockBean`
+- [ ] Assert mock was called: `mock.assert_called_once_with(arg)` — like `Mockito.verify()`
+- [ ] Mock a file read or external call your CLI makes
 
 ---
 
@@ -107,48 +119,90 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `collections` — `Counter`, `defaultdict`, `deque`
 - [ ] `itertools` — advanced iteration utilities
 
-### [ ] Day 17–18 — Data & Scripting
+### [ ] Day 17–18 — Data & Scripting + Intermediate Mocking
 - [ ] `csv` and `json` file processing
 - [ ] `argparse` — CLI argument parsing
 - [ ] `logging` — like Java's SLF4J/Logback
-- [ ] `unittest` — like JUnit; also learn `pytest`
+- [ ] `pytest-mock` — cleaner `mocker` fixture: `mocker.patch()` vs `@patch` decorator
+- [ ] Mock a service class — patch a method on an object, like mocking a `@Service` in Spring
+- [ ] `side_effect` — simulate exceptions or dynamic return values from mocks
+- [ ] `pytest` fixtures — reusable setup/teardown, like JUnit `@BeforeEach`
+- [ ] Parametrized tests: `@pytest.mark.parametrize` — run same test with multiple inputs
 
 ### [ ] Day 19–20 — Concurrency Basics
 - [ ] `threading` vs. `multiprocessing` (understand the GIL)
 - [ ] `asyncio` basics — Python's async/await (similar to Java's CompletableFuture)
 
-### [ ] Day 21 — Practice
-- [ ] Build a project: a web scraper, a data parser, or a REST API client using `requests`
+### [ ] Day 21 — Calling APIs (Authenticated & Unauthenticated)
+- [ ] Install `requests`: `pip install requests`
+- [ ] Call a public API (e.g. JSONPlaceholder) — basic GET/POST
+- [ ] Call a secured API with an **API key** — pass via header (`Authorization: ApiKey xxx`) or query param
+- [ ] Call a secured API with a **Bearer token** — `Authorization: Bearer <token>`
+- [ ] OAuth2 **client credentials flow** — machine-to-machine, like service accounts in Spring Security
+- [ ] Handle 401 / 403 responses gracefully — retry vs. fail fast
+- [ ] Store secrets in env vars, never hardcode — use `python-dotenv`
 
 ---
 
-## Week 4 — Real-World Python
+## Week 4 — Web Backend Track (FastAPI)
 
-### [ ] Day 22–23 — Choose a Domain Track
+> **Java equivalent:** Spring Boot → FastAPI. Same concepts: routing, request/response models, dependency injection, ORM.
 
-Pick one based on your goals:
+### [ ] Day 22 — FastAPI Intro
+- [ ] Install FastAPI + Uvicorn: `pip install fastapi uvicorn`
+- [ ] Create your first endpoint: `@app.get("/")` — like `@GetMapping` in Spring
+- [ ] Run the dev server: `uvicorn main:app --reload` — like Spring Boot's hot reload
+- [ ] Explore auto-generated Swagger UI at `http://localhost:8000/docs` — free, no setup
 
-| Track | Libraries to Learn |
-|---|---|
-| **Data / ML** | `numpy`, `pandas`, `matplotlib`, `scikit-learn` |
-| **Web Backend** | `FastAPI` or `Flask`, `SQLAlchemy` |
-| **Automation / DevOps** | `subprocess`, `paramiko`, `boto3` (AWS) |
-| **Testing / Tooling** | `pytest`, `hypothesis`, `click` |
+### [ ] Day 23 — Request & Response Models
+- [ ] Define request bodies with `pydantic` — like Java records / DTOs
+- [ ] Path params: `@app.get("/users/{id}")` — like `@PathVariable`
+- [ ] Query params: `def get_users(active: bool = True)` — like `@RequestParam`
+- [ ] Return JSON automatically — no `@ResponseBody` needed
 
-### [ ] Day 24–25 — Advanced Python
-- [ ] Type hints (`x: int`, return types) — like Java types, but optional
-- [ ] Dataclasses (`@dataclass`) — like Java records
-- [ ] Context managers (`__enter__`, `__exit__`)
-- [ ] Slots and memory optimization
+### [ ] Day 24 — SQLAlchemy (ORM)
+- [ ] Install: `pip install sqlalchemy`
+- [ ] Define models — like JPA `@Entity`
+- [ ] Connect to SQLite for local dev, Postgres for prod
+- [ ] Basic CRUD: create, read, update, delete — like `JpaRepository`
 
-### [ ] Day 26–27 — Project
-- [ ] Build a complete, working project in your chosen domain
-- [ ] Write tests for it
-- [ ] Structure it as a proper package
+### [ ] Day 25 — Advanced FastAPI
+- [ ] Dependency injection: `Depends()` — like Spring's `@Autowired`
+- [ ] Middleware and exception handlers — like `@ControllerAdvice`
+- [ ] Background tasks — like `@Async`
+- [ ] Environment config with `pydantic-settings` — like Spring's `application.properties`
+
+### [ ] Day 25b — Securing Your FastAPI
+- [ ] **API key auth** — validate key via `Depends()`, simplest approach for internal services
+- [ ] **JWT auth** — issue and verify tokens with `python-jose`; like Spring Security + JWT filter
+- [ ] **OAuth2 password flow** — FastAPI has built-in `OAuth2PasswordBearer`
+- [ ] **OAuth2 client credentials** — for service-to-service auth (no user involved)
+- [ ] Protect routes with `Depends(get_current_user)` — like `@PreAuthorize` in Spring
+- [ ] Scopes and role-based access — like Spring's `hasRole()`
+- [ ] HTTPS, CORS config — like Spring's `CorsConfigurationSource`
+
+### [ ] Day 26 — Testing & Mocking
+- [ ] `pytest` + FastAPI's `TestClient` — like Spring's `MockMvc`
+- [ ] Write unit tests for endpoints
+- [ ] Test request validation and error responses
+- [ ] `unittest.mock` — built-in mocking library, like Mockito in Java
+- [ ] `MagicMock` — mock any object, assert calls: like `Mockito.mock()` + `verify()`
+- [ ] `@patch` decorator — swap out a dependency for a test: like `@MockBean` in Spring
+- [ ] `pytest-mock` — cleaner `mocker` fixture for pytest: `mocker.patch("module.ClassName")`
+- [ ] Mock DB calls — patch SQLAlchemy session so tests don't hit a real DB
+- [ ] Mock external API calls — patch `requests.get` to return a fake response
+- [ ] Mock auth dependencies — override `Depends(get_current_user)` in `TestClient`
+
+### [ ] Day 27 — Project
+- [ ] Build a small REST API: a user/post API with full CRUD + JWT-protected routes
+- [ ] Add a service that calls an external secured API using Bearer token
+- [ ] Use FastAPI + SQLAlchemy + pytest
+- [ ] Structure it as a proper package (routers, models, schemas, db, auth)
 
 ### [ ] Day 28 — Review & Gaps
 - [ ] Go back and reinforce anything that felt weak
 - [ ] Read: *PEP 8* (Python style guide), *The Zen of Python* (`import this`)
+- [ ] Next steps: refresh token rotation, rate limiting, API gateway patterns
 
 ---
 
@@ -170,7 +224,8 @@ Pick one based on your goals:
 ## Resources
 
 - [Official Python Docs](https://docs.python.org/3/) — the best reference
+- [FastAPI Docs](https://fastapi.tiangolo.com) — excellent, thorough, beginner-friendly
+- [SQLAlchemy Docs](https://docs.sqlalchemy.org) — the ORM you'll use daily
 - [Real Python](https://realpython.com) — practical tutorials
-- [Python Koans](https://github.com/gregmalcolm/python_koans) — learn by fixing failing tests
 - [Exercism Python Track](https://exercism.org/tracks/python) — structured exercises
 - [Fluent Python (book)](https://www.oreilly.com/library/view/fluent-python-2nd/9781492056348/) — deep dive for serious fluency
