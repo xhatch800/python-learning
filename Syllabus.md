@@ -24,11 +24,11 @@ The goal this week is to rewire Java muscle memory into Python syntax.
 - [x] `type()` function — like `instanceof` but for inspection
 - [x] f-strings vs. Java's `String.format()`
 
-### [ ] Day 3 — Control Flow
-- [ ] `if / elif / else` (no `switch` until Python 3.10's `match`)
-- [ ] `for` loops: `for item in collection` — closer to Java's enhanced for-each
-- [ ] `while` loops — identical concept
-- [ ] No `do-while` in Python
+### [x] Day 3 — Control Flow
+- [x] `if / elif / else` (no `switch` until Python 3.10's `match`)
+- [x] `for` loops: `for item in collection` — closer to Java's enhanced for-each
+- [x] `while` loops — identical concept
+- [x] No `do-while` in Python
 
 ### [ ] Day 4 — Functions
 - [ ] `def` keyword vs. Java's method signatures
