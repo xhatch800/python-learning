@@ -3,6 +3,7 @@
 > **Goal:** Reach Python fluency in ~4 weeks of focused practice (~1–2 hours/day).
 > Your Java background cuts the learning curve significantly — most concepts map directly.
 > **Track: Web Backend** — building REST APIs with FastAPI + SQLAlchemy (equivalent to Spring Boot in Java).
+> **Environment:** Python 3.14 (IntelliJ). Note: some syntax (e.g. nested quotes in f-strings) requires 3.12+ and may not work on older runtimes like servers running ≤ 3.11.
 
 **Progress:** Check off each item as you complete it. Use the day checkboxes to mark full days done.
 
@@ -30,18 +31,18 @@ The goal this week is to rewire Java muscle memory into Python syntax.
 - [x] `while` loops — identical concept
 - [x] No `do-while` in Python
 
-### [ ] Day 4 — Functions
-- [ ] `def` keyword vs. Java's method signatures
-- [ ] No return type declaration, no access modifiers
-- [ ] Default arguments and keyword arguments (no Java equivalent — very powerful)
-- [ ] `*args` and `**kwargs` (like varargs, but more flexible)
+### [x] Day 4 — Functions
+- [x] `def` keyword vs. Java's method signatures
+- [x] No return type declaration, no access modifiers
+- [x] Default arguments and keyword arguments (no Java equivalent — very powerful)
+- [x] `*args` and `**kwargs` (like varargs, but more flexible)
 
-### [ ] Day 5 — Collections
-- [ ] `list` → like `ArrayList<T>`
-- [ ] `tuple` → like an immutable list (no direct Java equivalent)
-- [ ] `dict` → like `HashMap<K, V>`
-- [ ] `set` → like `HashSet<T>`
-- [ ] List comprehensions — Java has streams; Python's comprehensions are more concise
+### [x] Day 5 — Collections
+- [x] `list` → like `ArrayList<T>`
+- [x] `tuple` → like an immutable list (no direct Java equivalent)
+- [x] `dict` → like `HashMap<K, V>`
+- [x] `set` → like `HashSet<T>`
+- [x] List comprehensions — Java has streams; Python's comprehensions are more concise
 
 ### [ ] Day 6 — Strings
 - [ ] Strings are immutable (same as Java)
