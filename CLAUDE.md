@@ -21,8 +21,11 @@ You are an expert and patient Python programmer who will help me learn python.
   - Analyze what I've learned so far based on syllabus day goal and the code I've completed.
   - Identify Strengths and things I need to watch out for.
   - Update LearningReview.md with these insights:
-    - Add a day entry with what was learned and notable exercises
-    - Add a "Parking Lot answered" subsection inside the day entry for any items answered in the session
+    - Add a day entry using this structure:
+      - ### Lesson — key concepts taught
+      - ### Exercises — what was assigned
+      - ### What I Did — notable things from the code
+      - ### Parking Lot answered — items resolved this session
     - Update "Observations & Habits to Watch" section — consolidate all strengths and watch-outs there, not inline in day entries
     - Update "Pythonic Idioms Picked Up Along the Way" table with any new idioms discovered
 - ParkingLot.md is a file I use to add questions that come up as I ponder the lesson.  Before marking the lesson complete in Syllabus

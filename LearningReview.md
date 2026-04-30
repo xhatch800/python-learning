@@ -6,51 +6,170 @@
 ---
 
 ## Day 1 — Hello World
-- Ran first Python script, understood no `main()`, no semicolons, no braces
+
+### Lesson
+- Install Python 3, set up IntelliJ
+- Run first script: `python hello.py`
+- Understand the REPL — no Java equivalent
+- Key difference: no `public static void main`, no semicolons, no braces
+
+### Exercises
+- Print "Hello World"
+
+### What I Did
+- Ran first script successfully
+
+---
 
 ## Day 2 — Variables & Types
-- Dynamic typing, multiple assignment (`x, y, z = 1, 2, 3`), chained assignment (`a = b = 12`)
-- `type()`, f-strings with formatting (`{gas_price:.2f}`)
+
+### Lesson
+- Dynamic typing vs Java's static typing
+- Primitives: `int`, `float`, `str`, `bool`
+- `type()` function — like `instanceof` but for inspection
+- Multiple assignment: `x, y, z = 1, 2, 3`
+- Chained assignment: `a = b = 12`
+- f-strings vs Java's `String.format()` — including format specifiers like `{price:.2f}`
+
+### Exercises
+- Declare variables of each type and inspect with `type()`
+- Build an f-string with multiple values and formatting
+
+### What I Did
+- Used multiple assignment and chained assignment correctly
+- Applied f-string formatting with `:.2f` for floats
+
+---
 
 ## Day 3 — Control Flow
-- `if/elif/else`, `for` with `enumerate()`, `range()` with step, `while`, `match` (Python 3.10+ switch)
-- Explored `match` with guard conditions (`case val if val >= 90`) — beyond the lesson scope
+
+### Lesson
+- `if / elif / else` — no `switch` until Python 3.10's `match`
+- `for` loops: `for item in collection` — like Java's enhanced for-each
+- `while` loops — identical concept to Java
+- No `do-while` in Python
+- `range(start, stop, step)` for numeric loops
+- `enumerate()` for index + value iteration
+- `match` statement (Python 3.10+) — Python's switch
+
+### Exercises
+- Grade calculator using `if/elif/else`
+- Loop over a list with `enumerate()`
+- `while` loop with a flag
+
+### What I Did
+- Implemented grade calculator correctly
+- Explored `match` with guard conditions (`case val if val >= 90`) — beyond lesson scope
+- Used `range()` with step
+
+---
 
 ## Day 4 — Functions
-- `def`, default args, keyword args, `*args` (tuple), `**kwargs` (dict)
-- Built a real SQL query builder with `build_query(table, **filters)` — strong backend instinct
+
+### Lesson
+- `def` keyword vs Java's method signatures
+- No return type declaration, no access modifiers
+- Default arguments: `def greet(name, greeting="Hello")`
+- Keyword arguments: caller names the parameter explicitly, order doesn't matter
+- `*args` — variable positional args, stored as a tuple (like Java varargs)
+- `**kwargs` — variable keyword args, stored as a dict (no Java equivalent)
+- Argument order rule: `positional → default → *args → **kwargs`
+
+### Exercises
+- `power(base, exp=2)` — returns base raised to exp
+- `summarize(*items)` — prints each item numbered
+- `build_query(**filters)` — prints SQL-style `WHERE key = value` for each filter
+
+### What I Did
+- Extended `build_query` to accept a `table` positional arg and build real SQL with `WHERE`/`AND` — strong backend instinct
+- Used keyword args correctly in calls (`base=4, exp=4`)
+
+---
 
 ## Day 5 — Collections
-- `list`: slicing, stack (`append`/`pop`), queue (`deque`/`popleft`)
-- `tuple`: unpacking, `enumerate()`
-- `dict`: CRUD, `get()` with default, `items()` iteration, `del`
-- `set`: `add`, `discard`, membership (`in`), set operations (`&`, `|`, `-`)
-- List comprehensions: filtering, transforming, calling functions inside comprehensions
+
+### Lesson
+- `list` → like `ArrayList<T>` — slicing, `append`, `remove`, `pop`, stack and queue patterns
+- `tuple` → immutable list — unpacking, `enumerate()`
+- `dict` → like `HashMap<K,V>` — CRUD, `get()` with default, `items()` iteration, `del`, `pop()`
+- `set` → like `HashSet<T>` — `add`, `discard`, `in`, set ops (`&`, `|`, `-`)
+- List comprehensions: `[expr for x in iterable if condition]`
+- `deque` from `collections` for efficient queues
+- Negative indexing: `[-1]` last, `[-2:]` last two
+- Slicing: `[start:stop:step]` — start inclusive, end exclusive
+
+### Exercises
+- List of 5 numbers — find max, min, sum without a loop
+- Dict representing a product — safely get a missing key with default
+- Set of tags — add, remove, check membership
+- List comprehension filtering even numbers and squaring them from 1–10
+
+### What I Did
+- Used list as stack and queue (with `deque`) correctly
+- Tuple unpacking and `enumerate()` on a tuple
+- Created a function called inside a list comprehension
+- Fixed variable naming (`list` → `list_of_nums`) after feedback
+- Used `range(1, 11)` pattern after correction
+
+---
 
 ## Day 6 — Strings
-- Slicing with `[start:stop:step]` including reverse with `[::-1]`
-- Common methods: `.strip()`, `.split()`, `.join()`, `.replace()`, `.upper()`, `.title()`
-- Membership: `in`, `.startswith()`, `.endswith()`, `.find()`, `.count()`
-- Multi-line strings with triple quotes — used for SQL-style queries
-- String formatting: f-strings (preferred), `.format()`, `%` (avoid)
+
+### Lesson
+- Strings are immutable — same as Java
+- Slicing: `s[start:stop:step]` — works just like list slicing
+- `s[::-1]` — reverse a string using step of -1
+- Common methods: `.strip()`, `.lstrip()`, `.rstrip()`, `.upper()`, `.lower()`, `.capitalize()`, `.title()`
+- `.replace()`, `.split()`, `.join()`, `.find()`, `.count()`, `.startswith()`, `.endswith()`
+- `in` operator for membership — like Java's `.contains()`
+- Multi-line strings with triple quotes — useful for SQL, HTML
+- String formatting: f-strings (preferred), `.format()` (older), `%` (avoid)
+
+### Exercises
+- Strip, lowercase, title-case `"  python is GREAT  "`
+- Split `"apple,banana,orange"` and rejoin with `" | "`
+- Check if `"world"` is in `"hello world"` and find its index
+- Multi-line f-string user profile
+- Reverse `"backend"` using slicing
+
+### What I Did
 - Used `assert` throughout instead of `print` — already thinking in tests
-- Created `utils/helper.py` module independently — self-directed package organization
-- Discovered and used the **walrus operator** (`:=`) unprompted
+- Created `utils/helper.py` module independently
+- Discovered and used the **walrus operator** (`:=`) unprompted in Exercise 3
 
 **Parking Lot answered:**
 - `s[::-1]` — slice step notation; `[::-1]` traverses string backwards. Full form: `[start:stop:step]`
 
+---
+
 ## Day 7 — Practice + pytest
-- Implemented FizzBuzz, reverse string, word frequency counter
-- Wrote 6 pytest tests covering normal and edge cases (zero input, None input)
-- Cleaned punctuation from strings using `isalnum()` and `isspace()` — went beyond spec
-- Used `dictionary.get(word, 0) + 1` — the Pythonic counting pattern
-- Understood pytest discovery, `assert`, and separation of implementation vs test files
-- Learned virtual environment setup, `requirements.txt`, and IntelliJ auto-install flow
+
+### Lesson
+- Classic practice problems: FizzBuzz, reverse a string, word frequency counter
+- pytest basics — test discovery, no boilerplate needed
+- File naming: `test_*.py`, function naming: `test_*()`
+- `assert` replaces JUnit's `assertEquals`, `assertTrue`
+- Run with `pytest` or `pytest -v` for verbose output
+- Import implementation from separate file: `from day07_practice import *`
+- Virtual environments: `.venv` isolates dependencies per project
+- `requirements.txt` — lists dependencies; IntelliJ auto-detects and installs
+- `pip install -r requirements.txt` — equivalent of `mvn install`
+
+### Exercises
+- Implement `fizzbuzz(n)` — returns FizzBuzz values from 1 to n
+- Implement `reverse_str(s)` — reverses a string
+- Implement `word_freq_counter(text)` — returns dict of word counts
+- Write at least 2 pytest tests per function in `test_day07.py`
+
+### What I Did
+- Wrote 6 tests covering normal and edge cases (zero input, None input)
+- Stripped punctuation using `isalnum()` and `isspace()` — went beyond spec
+- Fixed `word_freq_counter` bug (used `setdefault` incorrectly) → replaced with `dict.get(word, 0) + 1`
+- Removed side effects (`helper.lesson()`) from inside functions after feedback
 
 **Parking Lot answered:**
 - `==` on lists vs sets — list `==` is order-sensitive; set `==` is value-only (like `ArrayList` vs `HashSet`)
-- `str.maketrans` and `.translate()` — `maketrans()` builds a char mapping table; `.translate()` applies it
+- `str.maketrans` and `.translate()` — `maketrans()` builds a char mapping table; `.translate()` applies it — bulk char replacement/deletion
 - Virtual environments & `requirements.txt` — `.venv` isolates deps per project; IntelliJ auto-detects both
 
 ---
@@ -80,6 +199,7 @@
 - Clean use of `enumerate()` and unpacking throughout
 - Already thinking in tests — uses `assert` over `print`, writes edge cases unprompted
 - Fixes bugs quickly and cleanly when pointed out
+- Self-directed — created `utils/helper.py` module independently
 
 **Watch out for:**
 - Using built-in names as variables (`list`, `dict`) — shadows Python built-ins
