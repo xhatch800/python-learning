@@ -44,11 +44,11 @@ The goal this week is to rewire Java muscle memory into Python syntax.
 - [x] `set` → like `HashSet<T>`
 - [x] List comprehensions — Java has streams; Python's comprehensions are more concise
 
-### [ ] Day 6 — Strings
-- [ ] Strings are immutable (same as Java)
-- [ ] Slicing: `s[1:4]` — no Java equivalent, very Pythonic
-- [ ] Common methods: `.split()`, `.strip()`, `.join()`, `.replace()`
-- [ ] Multi-line strings with triple quotes
+### [x] Day 6 — Strings
+- [x] Strings are immutable (same as Java)
+- [x] Slicing: `s[1:4]` — no Java equivalent, very Pythonic
+- [x] Common methods: `.split()`, `.strip()`, `.join()`, `.replace()`
+- [x] Multi-line strings with triple quotes
 
 ### [ ] Day 7 — Practice + Intro to pytest
 - [ ] Write FizzBuzz, reverse a string, word frequency counter
@@ -76,6 +76,7 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] Splat unpacking: `first, *rest = list`
 - [ ] `_` as throwaway variable
 - [ ] Truthiness: `if items`, `if not items`, `if user`
+- [ ] Walrus operator `:=` — assign and evaluate in one expression: `if (i := s.find("x")) > -1`
 
 #### Java Developer Gotchas
 - [ ] Mutable default arguments — `def f(x=[])` is dangerous; the list persists across calls
@@ -90,6 +91,7 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `[x*2 for x in nums if x > 0]` vs. Java streams
 - [ ] Generator expressions for memory-efficient iteration
 - [ ] `zip()`, `enumerate()`, `map()`, `filter()`
+- [ ] `sorted()` with `key` function — Python's equivalent of Java Comparators *(from ParkingLot)*
 
 ### [ ] Day 10 — File I/O
 - [ ] `open()`, `with` statement (like Java's try-with-resources)
@@ -139,6 +141,7 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `re` — regular expressions
 - [ ] `collections` — `Counter`, `defaultdict`, `deque`
 - [ ] `itertools` — advanced iteration utilities
+- [ ] `heapq` — priority queue implementation *(from ParkingLot)*
 
 ### [ ] Day 18–19 — Data & Scripting + Intermediate Mocking
 - [ ] `csv` and `json` file processing

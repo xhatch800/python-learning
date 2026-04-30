@@ -1,7 +1,7 @@
 # Tony's Python Learning Review
 
-**Days completed: 1–5 | Environment: Python 3.14, IntelliJ**
-**Last updated: 2026-04-29**
+**Days completed: 1–6 | Environment: Python 3.14, IntelliJ**
+**Last updated: 2026-04-30**
 
 ---
 
@@ -41,8 +41,19 @@
 | `deque` for efficient queues | `list.pop(0)` is O(n); `deque.popleft()` is O(1) |
 | `Decimal("0.1")` for precision | like `BigDecimal` — always pass as string |
 | Nested quotes in f-strings | works in Python 3.12+; breaks on older runtimes |
+| Walrus operator (`:=`) | assign + evaluate in one expression: `if (i := s.find("x")) > -1` |
 
 ---
+
+## Day 6 — Strings
+- Slicing with `[start:stop:step]` including reverse with `[::-1]`
+- Common methods: `.strip()`, `.split()`, `.join()`, `.replace()`, `.upper()`, `.title()`
+- Membership: `in`, `.startswith()`, `.endswith()`, `.find()`, `.count()`
+- Multi-line strings with triple quotes — used for SQL-style queries
+- String formatting: f-strings (preferred), `.format()`, `%` (avoid)
+- Used `assert` throughout instead of `print` — already thinking in tests
+- Created `utils/helper.py` module independently — self-directed package organization
+- Discovered and used the **walrus operator** (`:=`) unprompted — assign + evaluate in one expression
 
 ## Observations & Habits to Watch
 

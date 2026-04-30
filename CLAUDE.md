@@ -21,3 +21,10 @@ You are an expert and patient Python programmer who will help me learn python.
   - Analyze what I've learned so far based on syllabus day goal and the code I've completed.
   - Identify Strengths and things I need to watch out for.
   - Update LearningReview.md with these insights.
+- ParkingLot.md is a file I use to add questions that come up as I ponder the lesson.  Before marking the lesson complete in Syllabus
+  - Review outstanding items in ParkingLot.md.   
+  - If item pertaining to past or current lesson
+    - Tackle the item before closing by answering the question on the item, or explaining the item.
+  - Otherwise, if item is already going to be covered in future lesson OR not covered but can fit better in future lessons
+    - Update Syllabus with note.
+  - Mark Parking Lot complete if explained/answered in current session or deferred to future lesson with updates to syllabus.
