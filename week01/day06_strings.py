@@ -94,3 +94,15 @@ print(multiline)
 helper.lesson("Exercise 5")
 
 assert "backend"[::-1] == "dnekcab"
+
+
+helper.lesson("Translation")
+
+# Build a translation table — map characters to replacements
+table = str.maketrans("aeiou", "AEIOU")   # replace vowels with uppercase
+assert "hello world".translate(table) == "hEllO wOrld"
+
+# Can also delete characters
+table = str.maketrans("", "", "aeiou")    # delete all vowels
+assert "hello world".translate(table)  == "hll wrld"
+

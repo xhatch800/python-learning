@@ -50,15 +50,15 @@ The goal this week is to rewire Java muscle memory into Python syntax.
 - [x] Common methods: `.split()`, `.strip()`, `.join()`, `.replace()`
 - [x] Multi-line strings with triple quotes
 
-### [ ] Day 7 — Practice + Intro to pytest
-- [ ] Write FizzBuzz, reverse a string, word frequency counter
-- [ ] Rewrite a simple Java backend utility you know in Python (e.g. a data transformer or validator)
-- [ ] Install pytest: `pip install pytest`
-- [ ] Write your first test file: `test_day07.py` — like a JUnit test class
-- [ ] `def test_something():` — no annotations needed, just the `test_` prefix
-- [ ] `assert` keyword — like JUnit's `assertEquals`, `assertTrue`
-- [ ] Run tests: `pytest` — discovers and runs all `test_*.py` files automatically
-- [ ] Test a pure function end-to-end: input → expected output
+### [x] Day 7 — Practice + Intro to pytest
+- [x] Write FizzBuzz, reverse a string, word frequency counter
+- [x] Rewrite a simple Java backend utility you know in Python (e.g. a data transformer or validator)
+- [x] Install pytest: `pip install pytest`
+- [x] Write your first test file: `test_day07.py` — like a JUnit test class
+- [x] `def test_something():` — no annotations needed, just the `test_` prefix
+- [x] `assert` keyword — like JUnit's `assertEquals`, `assertTrue`
+- [x] Run tests: `pytest` — discovers and runs all `test_*.py` files automatically
+- [x] Test a pure function end-to-end: input → expected output
 
 ---
 
@@ -108,10 +108,12 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] Organizing code into `.py` files and folders
 - [ ] `pip` — Python's equivalent of Maven/Gradle
 - [ ] Virtual environments: `venv`
+- [ ] `requirements.txt` — declaring and installing dependencies *(from ParkingLot)*
+- [ ] IDE auto-detection of `requirements.txt` and `.venv` in IntelliJ/PyCharm *(from ParkingLot)*
 
 ### [ ] Day 13 — OOP in Python
 - [ ] `class`, `__init__` (constructor), `self` (like `this`)
-- [ ] Inheritance, method overriding
+- [ ] Inheritance, method overriding — how Python differs from Java *(from ParkingLot)*
 - [ ] `@property` decorator vs. Java getters/setters
 - [ ] No interfaces — use abstract classes (`abc`) or duck typing
 
@@ -120,6 +122,7 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `lambda` — like Java lambdas but simpler
 - [ ] `functools`: `reduce`, `partial`
 - [ ] Decorators — like Java annotations but executable
+- [ ] Function overloading alternatives in Python — no true overloading, use default args or `*args` *(from ParkingLot)*
 
 ### [ ] Day 15 — Practice + Mocking Basics
 - [ ] Build a small CLI app that models a REST-like resource: e.g. a to-do manager with add/list/delete commands
@@ -152,6 +155,7 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `side_effect` — simulate exceptions or dynamic return values from mocks
 - [ ] `pytest` fixtures — reusable setup/teardown, like JUnit `@BeforeEach`
 - [ ] Parametrized tests: `@pytest.mark.parametrize` — run same test with multiple inputs
+- [ ] `pytest-cov` — test coverage reporting, like JaCoCo in Java
 
 ### [ ] Day 20–21 — Concurrency Basics
 - [ ] `threading` vs. `multiprocessing` (understand the GIL)
