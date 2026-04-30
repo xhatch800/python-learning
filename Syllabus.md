@@ -194,12 +194,17 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] Define models — like JPA `@Entity`
 - [ ] Connect to SQLite for local dev, Postgres for prod
 - [ ] Basic CRUD: create, read, update, delete — like `JpaRepository`
+- [ ] Connection pooling — SQLAlchemy built-in, like HikariCP in Spring
 
 ### [ ] Day 26 — Advanced FastAPI
 - [ ] Dependency injection: `Depends()` — like Spring's `@Autowired`
 - [ ] Middleware and exception handlers — like `@ControllerAdvice`
 - [ ] Background tasks — like `@Async`
-- [ ] Environment config with `pydantic-settings` — like Spring's `application.properties`
+- [ ] Environment-based config with `pydantic-settings` — dev/staging/prod profiles like Spring
+- [ ] Caching — `functools.lru_cache` for in-memory, Redis via `redis-py` for distributed
+- [ ] Rate limiting — `slowapi` library, like Spring's `@RateLimiter`
+- [ ] Health checks & readiness probes — `/health` endpoint for Kubernetes/cloud deployments
+- [ ] Structured logging — JSON logging with `structlog` for Datadog/Splunk aggregation
 
 ### [ ] Day 27 — Securing Your FastAPI
 - [ ] **API key auth** — validate key via `Depends()`, simplest approach for internal services
@@ -222,16 +227,31 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] Mock external API calls — patch `requests.get` to return a fake response
 - [ ] Mock auth dependencies — override `Depends(get_current_user)` in `TestClient`
 
-### [ ] Day 29 — Project
+### [ ] Day 29 — Docker
+- [ ] Write a `Dockerfile` for your FastAPI app
+- [ ] Build and run the container locally
+- [ ] `docker-compose` — run app + Postgres + Redis together locally
+- [ ] Environment variables in containers — like Spring's `application.properties` per env
+- [ ] Multi-stage builds — keep image size small
+
+### [ ] Day 30 — Message Queues
+- [ ] Celery — Python's async task queue, like Spring `@Async` + RabbitMQ
+- [ ] Redis as a Celery broker — simple setup for background jobs
+- [ ] Define and dispatch tasks: `@app.task` decorator
+- [ ] Integrate Celery with FastAPI — offload slow work from request cycle
+- [ ] Monitor tasks — Flower dashboard for Celery
+
+### [ ] Day 31 — Project
 - [ ] Build a small REST API: a user/post API with full CRUD + JWT-protected routes
 - [ ] Add a service that calls an external secured API using Bearer token
-- [ ] Use FastAPI + SQLAlchemy + pytest
+- [ ] Add Redis caching, rate limiting, and a health check endpoint
+- [ ] Use FastAPI + SQLAlchemy + pytest + Docker
 - [ ] Structure it as a proper package (routers, models, schemas, db, auth)
 
-### [ ] Day 30 — Review & Gaps
+### [ ] Day 32 — Review & Gaps
 - [ ] Go back and reinforce anything that felt weak
 - [ ] Read: *PEP 8* (Python style guide), *The Zen of Python* (`import this`)
-- [ ] Next steps: refresh token rotation, rate limiting, API gateway patterns
+- [ ] Next steps: refresh token rotation, API gateway patterns, observability
 
 ---
 
