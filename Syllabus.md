@@ -160,6 +160,7 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 ### [ ] Day 20–21 — Concurrency Basics
 - [ ] `threading` vs. `multiprocessing` (understand the GIL)
 - [ ] `asyncio` basics — Python's async/await (similar to Java's CompletableFuture)
+- [ ] Deep dive on GIL — what it is, why it exists, real-world implications for high-scalability apps, and how Python works around it *(from ParkingLot)*
 
 ### [ ] Day 22 — Calling APIs (Authenticated & Unauthenticated)
 - [ ] Install `requests`: `pip install requests`

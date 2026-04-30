@@ -8,3 +8,4 @@
 - [x] Regular expressions → already in Syllabus Day 16–17 (re module)
 - [x] Virtual environments, requirements.txt, and how IDEs (IntelliJ/PyCharm) auto-detect and install dependencies → covered Day 7, deep dive in Day 12
 - [x] Functional overriding and overloading → deferred to Day 13 (overriding) and Day 14 (overloading alternatives)
+- [ ] Deep dive on GIL (Global Interpreter Lock) — limitations, implications for enterprise/high-scalability apps, and Python's concurrency answers → deferred to Day 20–21
