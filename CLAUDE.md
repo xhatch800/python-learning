@@ -27,7 +27,8 @@ You are an expert and patient Python programmer helping me learn Python.
 - After successful check, ask if I want to mark lesson complete — do NOT move to next lesson unless I explicitly say so
 
 # On Lesson Completion
-1. Review ParkingLot.md for outstanding items:
+1. Update CONTEXT.md — add any new environment notes, conventions, or carry-over discussions not captured elsewhere
+2. Review ParkingLot.md for outstanding items:
    - If related to current/past lesson → answer/explain it
    - If better suited to a future lesson → add note to Syllabus.md
    - Mark item complete either way

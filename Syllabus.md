@@ -1,6 +1,6 @@
 # Python Fluency Syllabus (Java Developer Fast-Track)
 
-> **Goal:** Reach Python fluency in ~4 weeks of focused practice (~1–2 hours/day).
+> **Goal:** Reach Python fluency in ~5 weeks of focused practice (~1–2 hours/day).
 > Your Java background cuts the learning curve significantly — most concepts map directly.
 > **Track: Web Backend** — building REST APIs with FastAPI + SQLAlchemy (equivalent to Spring Boot in Java).
 > **Environment:** Python 3.14 (IntelliJ). Note: some syntax (e.g. nested quotes in f-strings) requires 3.12+ and may not work on older runtimes like servers running ≤ 3.11.
@@ -9,7 +9,7 @@
 
 ---
 
-## Week 1 — Python Basics (Java Translation Layer)
+## Week 1 — Python Basics (Days 1–7)
 
 The goal this week is to rewire Java muscle memory into Python syntax.
 
@@ -62,7 +62,7 @@ The goal this week is to rewire Java muscle memory into Python syntax.
 
 ---
 
-## Week 2 — Pythonic Thinking
+## Week 2 — Pythonic Thinking (Days 8–14)
 
 The goal this week is to stop writing "Java in Python" and start writing real Python.
 
@@ -124,6 +124,10 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] Decorators — like Java annotations but executable
 - [ ] Function overloading alternatives in Python — no true overloading, use default args or `*args` *(from ParkingLot)*
 
+---
+
+## Week 3 — Standard Library & Ecosystem (Days 15–21)
+
 ### [ ] Day 15 — Practice + Mocking Basics
 - [ ] Build a small CLI app that models a REST-like resource: e.g. a to-do manager with add/list/delete commands
 - [ ] Focus on writing idiomatic Python, not Java-translated Python
@@ -132,10 +136,6 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `@patch("module.function")` — replace a real function with a mock for a test, like `@MockBean`
 - [ ] Assert mock was called: `mock.assert_called_once_with(arg)` — like `Mockito.verify()`
 - [ ] Mock a file read or external call your CLI makes
-
----
-
-## Week 3 — Standard Library & Ecosystem
 
 ### [ ] Day 16–17 — Key Standard Library Modules
 - [ ] `os`, `sys` — system/env interaction
@@ -162,6 +162,10 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] `asyncio` basics — Python's async/await (similar to Java's CompletableFuture)
 - [ ] Deep dive on GIL — what it is, why it exists, real-world implications for high-scalability apps, and how Python works around it *(from ParkingLot)*
 
+---
+
+## Week 4 — Web Backend Track: FastAPI Core (Days 22–28)
+
 ### [ ] Day 22 — Calling APIs (Authenticated & Unauthenticated)
 - [ ] Install `requests`: `pip install requests`
 - [ ] Call a public API (e.g. JSONPlaceholder) — basic GET/POST
@@ -170,10 +174,6 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] OAuth2 **client credentials flow** — machine-to-machine, like service accounts in Spring Security
 - [ ] Handle 401 / 403 responses gracefully — retry vs. fail fast
 - [ ] Store secrets in env vars, never hardcode — use `python-dotenv`
-
----
-
-## Week 4 — Web Backend Track (FastAPI)
 
 > **Java equivalent:** Spring Boot → FastAPI. Same concepts: routing, request/response models, dependency injection, ORM.
 
@@ -226,6 +226,12 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [ ] Mock DB calls — patch SQLAlchemy session so tests don't hit a real DB
 - [ ] Mock external API calls — patch `requests.get` to return a fake response
 - [ ] Mock auth dependencies — override `Depends(get_current_user)` in `TestClient`
+
+---
+
+## Week 5 — Production-Grade Python (Days 29–32)
+
+> Taking FastAPI apps from working to production-ready: containerization, async jobs, and final project.
 
 ### [ ] Day 29 — Docker
 - [ ] Write a `Dockerfile` for your FastAPI app
