@@ -10,3 +10,4 @@
 - [x] Functional overriding and overloading → deferred to Day 13 (overriding) and Day 14 (overloading alternatives)
 - [ ] Deep dive on GIL (Global Interpreter Lock) — limitations, implications for enterprise/high-scalability apps, and Python's concurrency answers → deferred to Day 20–21
 - [ ] Dunder methods (`__eq__`, `__hash__`, `__str__`, `__repr__`) — Python's equivalent of overriding `equals()`, `hashCode()`, `toString()` from Java's Object → deferred to Day 13
+- [ ] Enums in Python — how they compare to Java enums → deferred to Day 13 (OOP)

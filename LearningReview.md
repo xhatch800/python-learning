@@ -174,6 +174,49 @@
 
 ---
 
+## Day 8 — Pythonic Idioms & Java Developer Gotchas
+
+### Lesson
+- Variable swapping: `a, b = b, a`
+- Chained comparisons: `0 < x < 10`
+- Ternary expressions: `x if condition else y` — chain with parens for multi-line
+- Splat unpacking: `first, *middle, last = lst` — `*` always captures a list
+- `_` as throwaway variable in unpacking and loops
+- Truthiness: falsy values are `None`, `0`, `""`, `[]`, `{}`, `()`
+- Mutable default arguments — use `None` sentinel, never `[]` or `{}`
+- `==` vs `is` — always use `is None`, never `== None`
+- Integer division: `/` returns float; `//` for floor division; `-7 // 2 == -4` (floors, not truncates)
+- `None` is a singleton object, not just "no reference" — `is None` is identity check
+- No `++` — use `+=`
+- Indentation is syntax
+- Shadowing built-ins silently breaks things
+
+### Exercises
+- `swap(a, b)` — one-line body
+- `is_valid_port(n)` — chained comparison
+- `classify(n)` — chained ternary with parens
+- Splat unpacking variations: middle, first, last
+- `merge_collections`, `merge_dictionaries` with splat
+- `name_year_only(t)` — `_` discard
+- `summarize(items)` — truthiness
+- `add_tag` (buggy) and `add_tag_safe` (fixed with `is None`)
+- `identity_gotchas()` — `==` vs `is` demo
+- `divide(a, b)` — float and floor results
+- `safe_double(n)` — `is None` guard
+
+### What I Did
+- Used parens for multi-line ternary unprompted — clean
+- Explored all three splat positions (first, middle, last) plus merge variants
+- Strong boundary testing on `is_valid_port` (0, 1, 65535, 65536)
+- Initially used `if not tags` in `add_tag_safe` — caught and fixed to `if tags is None`
+- Initially implemented `safe_double` as squaring (`n ** 2`) — caught and fixed to `n * 2`
+- Removed `common_none_falsy_trap` from tests after incorrect comment rather than fixing — acceptable
+
+### Parking Lot answered
+- None — no items resolved this session (enums and dunders deferred to Day 13)
+
+---
+
 ## Pythonic Idioms Picked Up Along the Way
 
 | Idiom | Notes |
@@ -188,18 +231,27 @@
 | Nested quotes in f-strings | works in Python 3.12+; breaks on older runtimes |
 | Walrus operator (`:=`) | assign + evaluate in one expression: `if (i := s.find("x")) > -1` |
 | `dict.get(key, 0) + 1` | Pythonic counting pattern — avoids `KeyError` |
+| `a, b = b, a` | swap without temp variable |
+| Chained comparisons | `0 < x < 10` — reads like math, short-circuits |
+| Ternary with parens | `("x" if a else "y" if b else "z")` — multi-line ternary chain |
+| Splat unpacking `*` | `first, *middle, last = lst` — `*` always gives a list |
+| `_` throwaway | convention for intentionally ignored values |
+| `if tags is None: tags = []` | safe mutable default pattern |
+| `x is None` / `x is not None` | always use `is` for None checks, never `==` |
 
 ---
 
 ## Observations & Habits to Watch
 
 **Strengths:**
-- Extends exercises beyond requirements — SQL builder, composer filter, `match` guards, punctuation stripping
+- Extends exercises beyond requirements — SQL builder, composer filter, `match` guards, punctuation stripping, splat variations
 - Good data structure instincts from Java (choosing `deque`, thinking about edge cases)
 - Clean use of `enumerate()` and unpacking throughout
 - Already thinking in tests — uses `assert` over `print`, writes edge cases unprompted
 - Fixes bugs quickly and cleanly when pointed out
 - Self-directed — created `utils/helper.py` module independently
+- Strong boundary testing instinct (port numbers: 0, 1, 65535, 65536)
+- Asks sharp conceptual questions (None vs null, `is` vs `==`, REPL vs script context)
 
 **Watch out for:**
 - Using built-in names as variables (`list`, `dict`) — shadows Python built-ins
@@ -207,6 +259,7 @@
 - PEP 8 spacing: no space before `:`, spaces inside tuple destructuring `(k, v)`
 - Side effects inside functions (e.g. `helper.lesson()` inside `fizzbuzz()`)
 - `if x in dict.keys()` → prefer `if x in dict`
+- Truthiness checks (`if not x`) when `None` is the specific target — use `is None`
 
 ---
 

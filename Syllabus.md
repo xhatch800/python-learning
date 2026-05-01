@@ -66,26 +66,26 @@ The goal this week is to rewire Java muscle memory into Python syntax.
 
 The goal this week is to stop writing "Java in Python" and start writing real Python.
 
-### [ ] Day 8 — Pythonic Idioms & Java Developer Gotchas
+### [x] Day 8 — Pythonic Idioms & Java Developer Gotchas
 > **Living reference** — new idioms and gotchas discovered after Day 8 is completed are appended here. No need to recheck this day.
 
 #### Pythonic Idioms
-- [ ] Variable swapping without temp: `a, b = b, a`
-- [ ] Chained comparisons: `0 < x < 10`
-- [ ] Ternary expressions: `x if condition else y`
-- [ ] Splat unpacking: `first, *rest = list`
-- [ ] `_` as throwaway variable
-- [ ] Truthiness: `if items`, `if not items`, `if user`
-- [ ] Walrus operator `:=` — assign and evaluate in one expression: `if (i := s.find("x")) > -1`
+- [x] Variable swapping without temp: `a, b = b, a`
+- [x] Chained comparisons: `0 < x < 10`
+- [x] Ternary expressions: `x if condition else y`
+- [x] Splat unpacking: `first, *rest = list`
+- [x] `_` as throwaway variable
+- [x] Truthiness: `if items`, `if not items`, `if user`
+- [x] Walrus operator `:=` — assign and evaluate in one expression: `if (i := s.find("x")) > -1`
 
 #### Java Developer Gotchas
-- [ ] Mutable default arguments — `def f(x=[])` is dangerous; the list persists across calls
-- [ ] `==` vs `is` — `==` compares value (like Java), `is` compares identity (like `==` on object refs)
-- [ ] Integer division — `5 / 2` is `2.5` (not `2`); use `5 // 2` for floor division like Java
-- [ ] `None` is not `0` or `false` — always check `if x is None`, not `if x == None`
-- [ ] No `++` operator — use `x += 1`
-- [ ] Indentation is syntax — a misplaced space breaks your code, no braces to save you
-- [ ] Shadowing built-ins — naming variables `list`, `dict`, `input`, `id` silently breaks things
+- [x] Mutable default arguments — `def f(x=[])` is dangerous; the list persists across calls
+- [x] `==` vs `is` — `==` compares value (like Java), `is` compares identity (like `==` on object refs)
+- [x] Integer division — `5 / 2` is `2.5` (not `2`); use `5 // 2` for floor division like Java
+- [x] `None` is not `0` or `false` — always check `if x is None`, not `if x == None`
+- [x] No `++` operator — use `x += 1`
+- [x] Indentation is syntax — a misplaced space breaks your code, no braces to save you
+- [x] Shadowing built-ins — naming variables `list`, `dict`, `input`, `id` silently breaks things
 
 ### [ ] Day 9 — List Comprehensions & Generators
 - [ ] `[x*2 for x in nums if x > 0]` vs. Java streams
