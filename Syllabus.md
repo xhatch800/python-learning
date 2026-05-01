@@ -87,11 +87,11 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [x] Indentation is syntax — a misplaced space breaks your code, no braces to save you
 - [x] Shadowing built-ins — naming variables `list`, `dict`, `input`, `id` silently breaks things
 
-### [ ] Day 9 — List Comprehensions & Generators
-- [ ] `[x*2 for x in nums if x > 0]` vs. Java streams
-- [ ] Generator expressions for memory-efficient iteration
-- [ ] `zip()`, `enumerate()`, `map()`, `filter()`
-- [ ] `sorted()` with `key` function — Python's equivalent of Java Comparators *(from ParkingLot)*
+### [x] Day 9 — List Comprehensions & Generators
+- [x] `[x*2 for x in nums if x > 0]` vs. Java streams
+- [x] Generator expressions for memory-efficient iteration
+- [x] `zip()`, `enumerate()`, `map()`, `filter()`
+- [x] `sorted()` with `key` function — Python's equivalent of Java Comparators *(from ParkingLot)*
 
 ### [ ] Day 10 — File I/O
 - [ ] `open()`, `with` statement (like Java's try-with-resources)

@@ -9,7 +9,7 @@
 - Python 3.14 (IntelliJ) — nested quotes in f-strings are valid, do NOT flag as errors
 - Sandbox runs Python 3.10 — always run files with `PYTHONPATH=. python3` from project root
 - pytest 9.0.3 installed in `.venv`, `requirements.txt` at project root
-- In sandbox, pytest must be run via `/sessions/focused-happy-bohr/.local/bin/pytest` (not on PATH)
+- In sandbox, pytest must be run via `PYTHONPATH=. python3 -m pytest` (not on PATH — path changes each session)
 
 ## Project Structure Notes
 - `utils/helper.py` — custom helper module; some lesson files import it with `from utils import helper`

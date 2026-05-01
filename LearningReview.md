@@ -217,6 +217,45 @@
 
 ---
 
+## Day 9 — List Comprehensions & Generators
+
+### Lesson
+- List comprehensions: filter + transform in one expression — like Java streams but more concise
+- Dict and set comprehensions: `{k: v for ...}`, `{x for ...}`
+- Nested comprehensions: outer loop first, inner loop second
+- Generator expressions: lazy evaluation, one-shot iteration — like Java `Stream<T>`
+- `yield` keyword: turns a function into an iterator, pauses and resumes execution
+- `zip()`: parallel iteration over two sequences
+- `map(fn, iterable)`: apply function to every element — prefer comprehension for readability, `map` for named functions
+- `filter(fn, iterable)`: keep elements where fn returns True
+- `sorted()` with `key`: extract sort value via function — like `Comparator.comparing()`
+- Multi-key sort: return a tuple from `key`; negate numeric fields for descending order
+- `sorted()` vs `.sort()`: sorted returns new list, sort is in-place
+
+### Exercises
+- `squares_of_evens(nums)` — list comprehension with filter
+- `flatten(matrix)` — nested comprehension
+- `word_lengths(words)` — dict comprehension
+- `first_n_squares(n)` — generator with `yield`
+- `big_sum(limit)` — generator expression passed to `sum()`
+- `pair_up(keys, values)` — `zip()` into dict
+- `apply_all(fn, items)` — `map()`
+- `keep_if(predicate, items)` — `filter()`
+- `sort_by_length(words)` — `sorted()` with built-in key
+- `sort_people(people)` — multi-key sort with negation for descending
+
+### What I Did
+- Applied `None` guards consistently across all functions using `is None`
+- Used `if word` in `word_lengths` to filter `None` and empty strings in one shot
+- Used `-p[1]` negation correctly for descending age sort
+- Wrote thorough tests including edge cases (empty list, None input, mixed None elements)
+- Tests written to match spec (age descending), not just implementation
+
+### Parking Lot answered
+- Java Comparators → `sorted()` with `key` function covered this session
+
+---
+
 ## Pythonic Idioms Picked Up Along the Way
 
 | Idiom | Notes |
@@ -238,6 +277,9 @@
 | `_` throwaway | convention for intentionally ignored values |
 | `if tags is None: tags = []` | safe mutable default pattern |
 | `x is None` / `x is not None` | always use `is` for None checks, never `==` |
+| Generator expression in function call | `sum(x**2 for x in data)` — no extra `[]` needed |
+| Negate numeric key for descending sort | `key=lambda p: (-p[1], p[0])` — age desc, name asc |
+| `map(len, words)` | pass built-in directly to map — no lambda needed |
 
 ---
 
