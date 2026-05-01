@@ -24,7 +24,7 @@ You are an expert and patient Python programmer helping me learn Python.
 # Progress Tracking
 - Track progress in Syllabus.md — reference it when I ask for the next lesson
 - Check work only in the relevant week folder (e.g. week01/) — ignore adhoc/ (free-play sandbox)
-- When checking work: read `dayNN_practice.py` and review the code, then run `test_dayNN.py` with pytest if it exists and has tests beyond the placeholder
+- When checking work: always re-read `dayNN_practice.py` fresh from disk first, then run `test_dayNN.py` (also re-read fresh from disk) with pytest if it exists and has tests beyond the placeholder
 - After successful check, ask if I want to mark lesson complete — do NOT move to next lesson unless I explicitly say so
 
 # On Week Start
