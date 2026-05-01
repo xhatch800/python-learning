@@ -26,8 +26,16 @@ You are an expert and patient Python programmer helping me learn Python.
 - Check work only in the relevant week folder (e.g. week01/) — ignore adhoc/ (free-play sandbox)
 - After successful check, ask if I want to mark lesson complete — do NOT move to next lesson unless I explicitly say so
 
+# On Session Start
+When starting a new chat, always read these files in order before doing anything else:
+1. `CLAUDE.md` — ground rules and teaching conventions
+2. `CONTEXT.md` — environment quirks and carry-over context (unique info only — do not duplicate what's in other files)
+3. `Syllabus.md` — current progress and upcoming lessons
+4. `LearningReview.md` — what has been learned and observations
+5. `ParkingLot.md` — outstanding questions
+
 # On Lesson Completion
-1. Update CONTEXT.md — add any new environment notes, conventions, or carry-over discussions not captured elsewhere
+1. Update CONTEXT.md — add environment notes, project quirks, or carry-over discussions NOT already captured in other files
 2. Review ParkingLot.md for outstanding items:
    - If related to current/past lesson → answer/explain it
    - If better suited to a future lesson → add note to Syllabus.md
