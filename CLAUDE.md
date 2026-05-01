@@ -42,9 +42,7 @@ When starting a new chat, always read these files in order before doing anything
 5. `ParkingLot.md` — outstanding questions
 
 # On Lesson Completion
-1. Update CONTEXT.md — add environment notes, project quirks, or carry-over discussions NOT already captured in other files
-   - ✅ Add: sandbox quirks, tool paths, one-off env discoveries, carry-over discussions unique to this project
-   - ❌ Skip: anything already in CLAUDE.md (teaching style, commands, preferences) or Syllabus.md (progress, topics)
+1. Update CONTEXT.md — the bridge between sessions. Before writing, check: is this already in ParkingLot.md, Syllabus.md, LearningReview.md, or CLAUDE.md? If yes, skip it. If no, add it.
 2. Review ParkingLot.md for outstanding items:
    - If related to current/past lesson → answer/explain it
    - If better suited to a future lesson → add note to Syllabus.md
