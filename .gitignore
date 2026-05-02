@@ -220,4 +220,10 @@ __marimo__/
 # Claude
 .claude/
 
+# Temporary files
+tmp/
+**/tmp/
+*.tmp
+tmp.*
+
 .idea/

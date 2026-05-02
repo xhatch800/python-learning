@@ -93,10 +93,10 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [x] `zip()`, `enumerate()`, `map()`, `filter()`
 - [x] `sorted()` with `key` function — Python's equivalent of Java Comparators *(from ParkingLot)*
 
-### [ ] Day 10 — File I/O
-- [ ] `open()`, `with` statement (like Java's try-with-resources)
-- [ ] Reading/writing text files and CSVs
-- [ ] `pathlib` — modern file path handling
+### [x] Day 10 — File I/O
+- [x] `open()`, `with` statement (like Java's try-with-resources)
+- [x] Reading/writing text files and CSVs
+- [x] `pathlib` — modern file path handling
 
 ### [ ] Day 11 — Error Handling
 - [ ] `try / except / finally / else` — similar to Java's `try/catch/finally`

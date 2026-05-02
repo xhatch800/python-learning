@@ -1,7 +1,7 @@
 # Tony's Python Learning Review
 
-**Days completed: 1–7 | Environment: Python 3.14, IntelliJ**
-**Last updated: 2026-04-30**
+**Days completed: 1–10 | Environment: Python 3.14, IntelliJ**
+**Last updated: 2026-05-02**
 
 ---
 
@@ -256,6 +256,34 @@
 
 ---
 
+## Day 10 — File I/O
+
+### Lesson
+- `open()` with `with` statement — auto-closes file, like Java try-with-resources
+- Modes: `"r"`, `"w"`, `"a"`, `"x"`, `"r+"`, `"w+"`, `"a+"` — multi-mode needs `seek(0)` to rewind
+- `f.read()`, `f.readline()`, `f.readlines()`, `for line in f` — four grains of reading
+- `f.write()` vs `f.writelines()` — neither adds newlines automatically
+- `csv.DictReader` / `csv.DictWriter` — dict-based CSV I/O; headers inferred from first dict's keys
+- CSV always returns strings — cast manually or use pandas for typed reading
+- `pathlib.Path` — modern path handling; `/` operator joins paths; `Path()` is idempotent
+- `path.parent.mkdir(parents=True, exist_ok=True)` — create missing dirs before writing
+
+### Exercises
+- `write_lines(filepath, lines)` / `read_lines(filepath)` — text file round-trip
+- `write_csv(filepath, rows)` / `read_csv(filepath)` — CSV round-trip with dicts
+- Updated both write functions to accept `str` or `Path` and auto-create parent dirs
+
+### What I Did
+- Used `tmp.` prefix naming for temp files — already gitignored by project convention
+- Switched `read_csv` to `list(csv.DictReader(f))` after feedback — cleaner
+- Applied `Path(filepath)` directly in `write_csv` (idempotent); kept `isinstance` check in `write_lines` — inconsistency between the two similar functions
+- Good instinct on pass-by-value vs rebinding — correctly identified that `lst = [99]` inside a function doesn't mutate the caller's list
+
+### Parking Lot answered
+- None — all open items deferred to future lessons
+
+---
+
 ## Pythonic Idioms Picked Up Along the Way
 
 | Idiom | Notes |
@@ -280,6 +308,10 @@
 | Generator expression in function call | `sum(x**2 for x in data)` — no extra `[]` needed |
 | Negate numeric key for descending sort | `key=lambda p: (-p[1], p[0])` — age desc, name asc |
 | `map(len, words)` | pass built-in directly to map — no lambda needed |
+| `Path(filepath)` is idempotent | wraps `str` or `Path` — always safe, no `isinstance` check needed |
+| `path.parent.mkdir(parents=True, exist_ok=True)` | create missing dirs before writing — like `mkdir -p` |
+| `list(csv.DictReader(f))` | cleaner than list comprehension for materializing a reader |
+| `newline=""` on CSV write | prevents blank lines on Windows — include by habit even on Mac |
 
 ---
 

@@ -14,6 +14,7 @@
 ## Project Structure Notes
 - `utils/helper.py` — custom helper module; some lesson files import it with `from utils import helper`
 - `CLAUDE_proposed.md` — leftover file, safe to delete
+- Temp files in tests use `tmp.` prefix (e.g. `tmp.test_day10.file.txt`) — covered by `.gitignore`
 
 ## Tony's Mindset
 - Evaluating Python as a serious production/enterprise language, not just a learning exercise
