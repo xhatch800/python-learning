@@ -98,10 +98,10 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [x] Reading/writing text files and CSVs
 - [x] `pathlib` — modern file path handling
 
-### [ ] Day 11 — Error Handling
-- [ ] `try / except / finally / else` — similar to Java's `try/catch/finally`
-- [ ] Raising exceptions: `raise ValueError("msg")`
-- [ ] Custom exception classes
+### [x] Day 11 — Error Handling
+- [x] `try / except / finally / else` — similar to Java's `try/catch/finally`
+- [x] Raising exceptions: `raise ValueError("msg")`
+- [x] Custom exception classes
 
 ### [ ] Day 12 — Modules & Packages
 - [ ] `import`, `from x import y`

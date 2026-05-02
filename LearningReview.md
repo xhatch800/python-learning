@@ -1,6 +1,6 @@
 # Tony's Python Learning Review
 
-**Days completed: 1–10 | Environment: Python 3.14, IntelliJ**
+**Days completed: 1–11 | Environment: Python 3.14, IntelliJ**
 **Last updated: 2026-05-02**
 
 ---
@@ -284,6 +284,38 @@
 
 ---
 
+## Day 11 — Error Handling
+
+### Lesson
+- `try / except / else / finally` — maps directly to Java's `try/catch/finally`; `else` runs only if no exception was raised
+- Multiple `except` blocks — most specific first, most general last (same rule as Java)
+- Keep `try` scope narrow — one risky operation per block; sequential flat blocks beat deep nesting
+- `raise ExceptionType("msg")` — no `new` keyword unlike Java
+- Re-raising: bare `raise` inside `except` re-raises the original exception
+- Custom exceptions: subclass `Exception` (or a base app exception); `pass` is enough for simple ones
+- `super().__init__(message)` — unlike Java, `super()` doesn't have to be the first line
+- `pytest.raises(ExceptionType)` — idiomatic way to assert exceptions in tests; `match=` for message pattern
+
+### Exercises
+- `safe_divide(a, b)` — returns float or `None`; catches `ZeroDivisionError` and `TypeError`; uses `else`
+- `create_user(name, age)` — raises `ValidationError` for bad name/age, `TypeError` for wrong type
+- Custom exception hierarchy: `AppError` → `ValidationError`, `NotFoundError`
+- `find_users(users, name)` — raises `NotFoundError` with formatted message if not found
+
+### What I Did
+- Grouped `ZeroDivisionError` and `TypeError` in one `except` tuple — correct call since both return `None`
+- Used `(not name) or (not name.strip())` with short-circuit to safely handle `None` names
+- Initially excluded age=0 (newborns); caught and fixed to `0 <= age <= 150` with boundary tests
+- Initially placed class definitions after functions that used them; refactored to top after feedback
+- Replaced `len(result) == 0` with `if not result` — good Pythonic cleanup
+- Used `filter` + `lambda` for `find_users` — functional style
+
+### Parking Lot answered
+- **Casting in Python** — no casting in Java sense; `int()`, `float()` are constructors; raise `ValueError` on failure
+- **Java `Optional` vs Python** — Python returns `None` for absence or raises for invalid state; `Optional[str]` from `typing` is documentation only, no runtime enforcement
+
+---
+
 ## Pythonic Idioms Picked Up Along the Way
 
 | Idiom | Notes |
@@ -312,6 +344,10 @@
 | `path.parent.mkdir(parents=True, exist_ok=True)` | create missing dirs before writing — like `mkdir -p` |
 | `list(csv.DictReader(f))` | cleaner than list comprehension for materializing a reader |
 | `newline=""` on CSV write | prevents blank lines on Windows — include by habit even on Mac |
+| `if not result` on a list | Pythonic emptiness check — prefer over `len(result) == 0` |
+| `pytest.raises(ExceptionType)` | idiomatic exception assertion in tests — not `try/except` |
+| Sequential flat `try` blocks | one risky op per block; avoid sprawling `try` or deep nesting |
+| `pass` in exception class body | enough for a working custom exception — no boilerplate needed |
 
 ---
 
