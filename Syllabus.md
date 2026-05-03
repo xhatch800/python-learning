@@ -111,11 +111,11 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [x] `requirements.txt` — declaring and installing dependencies *(from ParkingLot)*
 - [x] IDE auto-detection of `requirements.txt` and `.venv` in IntelliJ/PyCharm *(from ParkingLot)*
 
-### [ ] Day 13 — OOP in Python
-- [ ] `class`, `__init__` (constructor), `self` (like `this`)
-- [ ] Inheritance, method overriding — how Python differs from Java *(from ParkingLot)*
-- [ ] `@property` decorator vs. Java getters/setters
-- [ ] No interfaces — use abstract classes (`abc`) or duck typing
+### [x] Day 13 — OOP in Python
+- [x] `class`, `__init__` (constructor), `self` (like `this`)
+- [x] Inheritance, method overriding — how Python differs from Java *(from ParkingLot)*
+- [x] `@property` decorator vs. Java getters/setters
+- [x] No interfaces — use abstract classes (`abc`) or duck typing
 
 ### [ ] Day 14 — Functional Python
 - [ ] First-class functions (pass functions as arguments)

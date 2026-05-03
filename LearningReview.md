@@ -341,6 +341,45 @@
 
 ---
 
+## Day 13 — OOP in Python
+
+### Lesson
+- `class`, `__init__`, `self` — constructor and instance reference; no `new`, no access modifiers
+- Dunder methods: `__str__` (toString), `__repr__` (dev string), `__eq__` (equals), `__hash__` (hashCode)
+- `__eq__` without `__hash__` → Python sets `__hash__ = None`; always define both
+- Return `NotImplemented` (not raise) from `__eq__` when types don't match
+- `@property` + `@x.setter` — replaces Java getters/setters; assign to `self.x` in `__init__` to trigger setter validation
+- `_single_underscore` = "private by convention"; no runtime enforcement
+- Inheritance: `class Foo(Parent):`; `super().__init__()` must be called explicitly
+- No `@Override` — typos silently create new methods instead of overriding
+- Abstract classes: `ABC` + `@abstractmethod`; concrete `@property` on ABC is inherited normally
+- Duck typing and `Protocol` — structural typing without inheritance
+- Enums: `class Foo(Enum)`; values can be int, string, or `auto()`; `@property` works inside enum body
+- No `final` for parameters — convention only; `Final` from `typing` for class-level constants
+
+### Exercises
+- `Product` class with `__init__`, `apply_discount`, `__str__`, `__repr__`, `__eq__`, `__hash__`, `@property price` with validation
+- `DiscountedProduct(Product)` — caps discount via `super().apply_discount()`
+- `Discount(ABC)` → `PercentDiscount`, `FlatDiscount` — abstract hierarchy
+- `Category(Enum)` with `auto()` and `display_name` property
+
+### What I Did
+- Used `self.price = price` in `__init__` to route through setter validation — correct pattern unprompted
+- Added `round(self.price, 2)` in `apply_discount` to handle float precision — pragmatic fix
+- Tested `p1 is not p2` before `p1 == p2` — correctly separating identity from equality
+- `FlatDiscount.apply` guards against discount > price — good edge case
+- Tested enum iteration with `list(Category)` — beyond spec
+- Caught and fixed `raise NotImplemented` → `return NotImplemented` after feedback
+- Caught and fixed `isinstance(other, FlatDiscount)` in `PercentDiscount.__eq__` after feedback
+- Sharp conceptual questions: `super()` vs `self` on inherited properties, Java final equivalent, enum constructor args
+
+### Parking Lot answered
+- Dunder methods — `__eq__`, `__hash__`, `__str__`, `__repr__` fully covered
+- Enums — covered with `auto()`, string values, properties, iteration
+- `final` for parameters — no Python equivalent; convention + `Final` for constants; immutable types for data
+
+---
+
 ## Pythonic Idioms Picked Up Along the Way
 
 | Idiom | Notes |
@@ -376,6 +415,11 @@
 | `if __name__ == "__main__":` | entry point guard — code inside only runs when file is executed directly, not imported |
 | `from utils.module import fn` | full package path import — prefer over wildcard; keeps origin explicit |
 | `ValueError` vs `TypeError` | wrong value → `ValueError`; wrong type → `TypeError` — use the right one |
+| `self.x = val` in `__init__` triggers setter | assign to property name, not `_x`, so validation runs at construction too |
+| `return NotImplemented` in `__eq__` | lets Python try the other operand — don't `raise`, don't return `False` |
+| `@property` inside `Enum` | works identically to a regular class — `self.name` and `self.value` available |
+| `auto()` in Enum | assigns sequential ints from 1 — use when value doesn't matter; use explicit values when it does |
+| `price *= (1 - percent / 100)` | in-place scaling — cleaner than `price = price - (price * percent / 100)` |
 
 ---
 
@@ -390,6 +434,7 @@
 - Self-directed — created `utils/helper.py` module independently
 - Strong boundary testing instinct (port numbers: 0, 1, 65535, 65536)
 - Asks sharp conceptual questions (None vs null, `is` vs `==`, REPL vs script context)
+- OOP instincts are strong — routed `__init__` through setter validation unprompted, guarded discount > price edge case, tested identity vs equality separately
 
 **Watch out for:**
 - Using built-in names as variables (`list`, `dict`) — shadows Python built-ins
