@@ -10,6 +10,8 @@
 - Sandbox runs Python 3.10 — always run files with `PYTHONPATH=. python3` from project root
 - pytest 9.0.3 installed in `.venv`, `requirements.txt` at project root
 - In sandbox, pytest must be run via `PYTHONPATH=. python3 -m pytest` (not on PATH — path changes each session)
+- `.venv` uses Python 3.14 shebang (from Tony's machine) — unusable in sandbox; run `pip install pytest --break-system-packages` each sandbox session before running tests
+- `utils/string_utils.py` added Day 12 — contains `slugify(text)`
 
 ## Project Structure Notes
 - `utils/helper.py` — custom helper module; some lesson files import it with `from utils import helper`

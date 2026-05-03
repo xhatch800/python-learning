@@ -1,6 +1,6 @@
 # Tony's Python Learning Review
 
-**Days completed: 1–11 | Environment: Python 3.14, IntelliJ**
+**Days completed: 1–12 | Environment: Python 3.14, IntelliJ**
 **Last updated: 2026-05-02**
 
 ---
@@ -316,6 +316,31 @@
 
 ---
 
+## Day 12 — Modules & Packages
+
+### Lesson
+- Three import styles: `import math`, `from math import sqrt`, `from math import ceil as ceiling` — tradeoffs between namespace clarity and brevity
+- Packages are folders with `__init__.py` — marks a directory as importable; can re-export names as a facade
+- `pip` — package manager equivalent to Maven/Gradle; `pip freeze > requirements.txt` for reproducible builds
+- `venv` — isolates dependencies per project; without it, pip installs globally causing version conflicts
+- `requirements.txt` version pinning: `==` (exact), `>=` (minimum), `~=` (compatible release)
+- `if __name__ == "__main__":` guard — runs only when file is executed directly, not when imported
+
+### Exercises
+- `circle_area(r)`, `hypotenuse(a, b)`, `round_up(n)` — demonstrating import styles with aliases
+- `utils/string_utils.py` with `slugify(text)` — new module in existing package
+- `if __name__ == "__main__":` block printing results of all three functions
+
+### What I Did
+- Independently chose to test `slugify` directly from the test file rather than wrapping it in `day12_practice.py` — good instinct, avoids unnecessary indirection
+- Fixed `ValueError` → `TypeError` for wrong-type input after feedback — correctly applied the distinction
+- Cleaned up unused `slugify` import from `day12_practice.py` after feedback
+
+### Parking Lot answered
+- None resolved this session
+
+---
+
 ## Pythonic Idioms Picked Up Along the Way
 
 | Idiom | Notes |
@@ -348,6 +373,9 @@
 | `pytest.raises(ExceptionType)` | idiomatic exception assertion in tests — not `try/except` |
 | Sequential flat `try` blocks | one risky op per block; avoid sprawling `try` or deep nesting |
 | `pass` in exception class body | enough for a working custom exception — no boilerplate needed |
+| `if __name__ == "__main__":` | entry point guard — code inside only runs when file is executed directly, not imported |
+| `from utils.module import fn` | full package path import — prefer over wildcard; keeps origin explicit |
+| `ValueError` vs `TypeError` | wrong value → `ValueError`; wrong type → `TypeError` — use the right one |
 
 ---
 

@@ -103,13 +103,13 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [x] Raising exceptions: `raise ValueError("msg")`
 - [x] Custom exception classes
 
-### [ ] Day 12 — Modules & Packages
-- [ ] `import`, `from x import y`
-- [ ] Organizing code into `.py` files and folders
-- [ ] `pip` — Python's equivalent of Maven/Gradle
-- [ ] Virtual environments: `venv`
-- [ ] `requirements.txt` — declaring and installing dependencies *(from ParkingLot)*
-- [ ] IDE auto-detection of `requirements.txt` and `.venv` in IntelliJ/PyCharm *(from ParkingLot)*
+### [x] Day 12 — Modules & Packages
+- [x] `import`, `from x import y`
+- [x] Organizing code into `.py` files and folders
+- [x] `pip` — Python's equivalent of Maven/Gradle
+- [x] Virtual environments: `venv`
+- [x] `requirements.txt` — declaring and installing dependencies *(from ParkingLot)*
+- [x] IDE auto-detection of `requirements.txt` and `.venv` in IntelliJ/PyCharm *(from ParkingLot)*
 
 ### [ ] Day 13 — OOP in Python
 - [ ] `class`, `__init__` (constructor), `self` (like `this`)
