@@ -1,7 +1,7 @@
 # Tony's Python Learning Review
 
-**Days completed: 1–12 | Environment: Python 3.14, IntelliJ**
-**Last updated: 2026-05-02**
+**Days completed: 1–14 | Environment: Python 3.14, IntelliJ**
+**Last updated: 2026-05-04**
 
 ---
 
@@ -380,6 +380,51 @@
 
 ---
 
+## Day 14 — Functional Python
+
+### Lesson
+- First-class functions — functions are objects; pass as args, store in lists, return from functions
+- `lambda` — anonymous single-expression functions; no type hints, no statements
+- `functools.reduce(fn, iterable, initial)` — collapse a sequence into one value; like `Stream.reduce()` in Java
+- `functools.partial(fn, **kwargs)` — pre-fill arguments to produce a new callable; like a pre-configured factory
+- Decorators — functions that wrap other functions; `@decorator` is shorthand for `fn = decorator(fn)`
+- `*args, **kwargs` in wrapper — makes decorators work on any function signature
+- `@functools.wraps(fn)` — preserves `__name__`, docstring on the wrapper; always include in production decorators
+- `@singledispatch` — runtime dispatch by type; fallback is the base function body; `@fn.register(Type)` for each variant
+- `singledispatch` limitations: plain types only (no `list[str]`); requires at least 1 positional arg; `type(None)` for None dispatch
+- Function overloading alternatives: default args (80% of cases), `isinstance` checks, `@singledispatch`
+- Lambda late binding gotcha — lambdas in loops close over the same variable; fix with default arg `lambda x, i=i: ...`
+
+### Exercises
+- `apply_pipeline(text, fns)` — apply list of functions left to right using a loop
+- `make_multiplier(n)` — returns a lambda closure that multiplies by `n`
+- `product(nums)` — collapse list to product using `reduce`
+- `partial` — `square` and `cube` from `power(base, exp)` using keyword arg pre-fill
+- `@timer` decorator — wraps any function, prints elapsed time using `perf_counter`; uses `try/finally` for safety; includes `@wraps`
+- `@singledispatch process(value)` — handles `int`, `str`, `list`, `NoneType`; raises `TypeError` for unknown types
+
+### What I Did
+- `apply_pipeline` used loop + rebind — correct since strings are immutable; clean over `reduce` here
+- `test_apply_pipeline` used a real-world pipeline (upper → strip → replace spaces with `-`) with tricky whitespace input
+- `make_multiplier` — correct closure on first attempt
+- `product` used `1` as initial — correctly identified as the multiplicative identity; handles empty list safely
+- `test_product` expressed expected value as `1 * 2 * 3 * 4` rather than hardcoded `24` — documents intent
+- Kept `partial` in tests, `power` in practice file — good separation of concerns
+- `@timer` used `try/finally` defensively — timing prints even if function raises
+- Added `@wraps(fn)` unprompted after it was mentioned — picked it up immediately
+- `slow_add.__name__` assertion used `startswith("FunctionTimer(fn=slow_add,elapsedMsSec=0.1")` — pins name and timing without brittleness
+- Extended `singledispatch` to handle `str` beyond the spec; used `reduce` inside the `list` handler to concatenate strings
+- `capsys` fixture used correctly for stdout assertion — no import needed
+- Asked sharp questions: `list[str]` in dispatch, `NoneType` registration, no-arg calls, lambda type hints, `final` in Java closures vs Python late binding
+
+### Parking Lot answered
+- First-class functions — covered; functions are objects, pass/return/store freely
+- Type hints on lambdas — can't annotate; use named functions when types matter
+- Function overloading alternatives — default args, `isinstance`, `@singledispatch`
+- Lambda late binding gotcha — parked for deeper closure exploration
+
+---
+
 ## Pythonic Idioms Picked Up Along the Way
 
 | Idiom | Notes |
@@ -420,6 +465,14 @@
 | `@property` inside `Enum` | works identically to a regular class — `self.name` and `self.value` available |
 | `auto()` in Enum | assigns sequential ints from 1 — use when value doesn't matter; use explicit values when it does |
 | `price *= (1 - percent / 100)` | in-place scaling — cleaner than `price = price - (price * percent / 100)` |
+| `@functools.wraps(fn)` | preserves `__name__` and docstring on decorator wrapper — include by habit |
+| `functools.partial(fn, **kwargs)` | pre-fill args to produce a new callable — cleaner than a lambda wrapper for reusable configs |
+| `@singledispatch` + `@fn.register(Type)` | runtime type dispatch — Python's overloading alternative; fallback is the base function |
+| `type(None)` in singledispatch | registers a handler for `None` — can't use `NoneType` directly |
+| `try/finally` in decorator wrapper | ensures cleanup (e.g. timing print) runs even if wrapped function raises |
+| `fn.__name__` | built-in attribute on every function — use inside decorators to get original function name |
+| `capsys` in pytest | built-in fixture to capture stdout/stderr — no import needed, just add as parameter |
+| `re.search(pattern, str)` | returns match object (truthy) or None (falsy) — use directly in `assert` for output pattern checks |
 
 ---
 

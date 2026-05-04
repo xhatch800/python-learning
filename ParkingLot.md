@@ -11,9 +11,10 @@
 - [ ] Deep dive on GIL (Global Interpreter Lock) — limitations, implications for enterprise/high-scalability apps, and Python's concurrency answers → deferred to Day 20–21
 - [x] Dunder methods (`__eq__`, `__hash__`, `__str__`, `__repr__`) — Answered Day 13: define inside class body; `__eq__` → `equals()`, `__hash__` → `hashCode()`, `__str__` → `toString()`, `__repr__` → developer-facing string; return `NotImplemented` (not raise) when types don't match
 - [x] Enums in Python — Answered Day 13: `class Foo(Enum)`, values can be int/string/auto(); `.name`, `.value`, iterable; `@property` works inside enum body; string values can serve as display names directly
-- [ ] Passing functions as parameters — first-class functions in Python → deferred to Day 14 (Functional Python)
+- [x] Passing functions as parameters — first-class functions in Python → covered Day 14: functions are objects; pass as args, store in lists, return from functions
 - [x] Java Optional vs Python equivalent — Answered Day 11: Python returns `None` for absence or raises exceptions for invalid state; `Optional[str]` from `typing` is type-hint documentation only, no runtime enforcement
-- [ ] Type hints on lambdas — lambdas can't be annotated; use named functions when types matter → deferred to Day 14 (Functional Python)
+- [x] Type hints on lambdas — lambdas can't be annotated; use named functions when types matter → covered Day 14
+- [ ] Lambda late binding / closure gotcha — all lambdas in a loop close over the same variable; fix with default arg `lambda x, i=i: ...`. Java's `final` requirement prevents this. → deferred for deeper closure exploration
 - [ ] pandas for typed CSV processing — `pd.read_csv()` with `dtype=` for schema-aware CSV handling; relevant for data pipelines → defer until needed
 - [x] Casting in Python — Answered Day 11: no casting in Java sense; `int()`, `float()`, `str()` are constructor calls that convert values; raise `ValueError` on failure, `TypeError` on wrong type
 - [x] Python has no `final` for parameters — Answered Day 13: no enforcement; convention is don't reassign params; `Final` from `typing` is for class-level constants only; use immutable types (`tuple`, frozen dataclass) for true immutability

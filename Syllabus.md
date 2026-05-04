@@ -117,12 +117,12 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 - [x] `@property` decorator vs. Java getters/setters
 - [x] No interfaces — use abstract classes (`abc`) or duck typing
 
-### [ ] Day 14 — Functional Python
-- [ ] First-class functions (pass functions as arguments)
-- [ ] `lambda` — like Java lambdas but simpler
-- [ ] `functools`: `reduce`, `partial`
-- [ ] Decorators — like Java annotations but executable
-- [ ] Function overloading alternatives in Python — no true overloading, use default args or `*args` *(from ParkingLot)*
+### [x] Day 14 — Functional Python
+- [x] First-class functions (pass functions as arguments)
+- [x] `lambda` — like Java lambdas but simpler
+- [x] `functools`: `reduce`, `partial`
+- [x] Decorators — like Java annotations but executable
+- [x] Function overloading alternatives in Python — no true overloading, use default args or `*args` *(from ParkingLot)*
 
 ---
 
