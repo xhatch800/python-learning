@@ -1,7 +1,7 @@
 # Tony's Python Learning Review
 
-**Days completed: 1–14 | Environment: Python 3.14, IntelliJ**
-**Last updated: 2026-05-04**
+**Days completed: 1–15 | Environment: Python 3.14, IntelliJ**
+**Last updated: 2026-05-06**
 
 ---
 
@@ -425,6 +425,38 @@
 
 ---
 
+## Day 15 — Practice + Mocking Basics
+
+### Lesson
+- `uuid.uuid4()` — generates a unique ID; Java equivalent: `UUID.randomUUID()`
+- `MagicMock()` — mock any object; configure with `.return_value`, assert with `.assert_called_once_with()` — like `Mockito.mock()` + `verify()`
+- `@patch("module.name")` / `with patch(...) as mock` — replaces a real name for the duration of the test; patch where the name is *used*, not where it's defined
+- Stacked `@patch` decorators inject parameters bottom-up
+- Two-arg `patch("target", prebuilt)` — swap in a pre-built replacement without `as`; `prebuilt` is fully configured before the call
+- `mock_open(read_data="...")` — pre-built mock for `open()`; no filesystem needed
+- `builtins.open` — correct patch target for `open()` (lives in builtins, not the module)
+- `mock.call_args.args` / `mock.call_args.kwargs` — inspect actual argument values post-call; use when `assert_called_once_with` can't express a condition (e.g. `timeout > 0`)
+- `Path(__file__).parent / "data" / "file.txt"` — correct way to reference test fixture files regardless of where pytest is invoked from
+
+### Exercises
+- `test_mock_storage` — MagicMock, `return_value`, `assert_called_once`, `assert_called_once_with`, `call_count`
+- `test_todo_uses_uuid` — `patch("day15_practice.uuid.uuid4")`, fixed return value, assert `_id`
+- `test_save_todo` — MagicMock storage, assert `storage.save` called with todo text
+- `test_load_todos_from_file_real` — real file read using `Path(__file__).parent / "data" / "todos.txt"`
+- `test_load_todos_from_file_mocked` — `mock_open(read_data=...)`, `patch("builtins.open", ...)`, assert returned `Todo` objects
+
+### What I Did
+- All 12 tests passing on first clean run
+- Used `Path(__file__).parent` correctly after understanding why relative paths fail when pytest runs from project root
+- Used `_assert_todos` helper in the mocked test — good reuse of existing infrastructure
+- Didn't add `mocked.assert_called_once_with("mock_file.txt")` — valid omission, but noted as a pattern to reach for when the filepath matters
+- Correctly identified `mock_uuid = "test-uuid-123"` as a rebinding bug (destroys the mock reference) and fixed to `mock_uuid.return_value`
+
+### Parking Lot answered
+- Conditional argument matching — `call_args.args` / `call_args.kwargs` is the concise approach; split "was it called?" from "were the values right?" rather than encoding conditions in a custom matcher class
+
+---
+
 ## Pythonic Idioms Picked Up Along the Way
 
 | Idiom | Notes |
@@ -473,13 +505,19 @@
 | `fn.__name__` | built-in attribute on every function — use inside decorators to get original function name |
 | `capsys` in pytest | built-in fixture to capture stdout/stderr — no import needed, just add as parameter |
 | `re.search(pattern, str)` | returns match object (truthy) or None (falsy) — use directly in `assert` for output pattern checks |
+| `MagicMock().method.return_value = x` | configure what a mock method returns — like `when(mock).method().thenReturn(x)` in Mockito |
+| `mock.assert_called_once_with(arg)` | verify exact call — like `Mockito.verify(mock).method(arg)`; raises if call count or args differ |
+| `mock.call_args.args` / `.kwargs` | inspect actual arguments after the call — use when you can't express the assertion in `assert_called_once_with` |
+| `patch("builtins.open", mock_open(...))` | replace `open()` for a test — `builtins.open` is the correct target, not the module |
+| `mock_open(read_data="...")` | pre-built file mock; simulates `open()` returning multi-line string content — no filesystem needed |
+| `Path(__file__).parent / "subdir" / "file.txt"` | resolve test asset paths relative to the test file — safe regardless of where pytest is run from |
 
 ---
 
 ## Observations & Habits to Watch
 
 **Strengths:**
-- Extends exercises beyond requirements — SQL builder, composer filter, `match` guards, punctuation stripping, splat variations
+- Extends exercises beyond requirements — SQL builder, composer filter, `match` guards, punctuation stripping, splat variations, reusing test helpers across new tests
 - Good data structure instincts from Java (choosing `deque`, thinking about edge cases)
 - Clean use of `enumerate()` and unpacking throughout
 - Already thinking in tests — uses `assert` over `print`, writes edge cases unprompted

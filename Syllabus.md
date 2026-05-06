@@ -128,14 +128,14 @@ The goal this week is to stop writing "Java in Python" and start writing real Py
 
 ## Week 3 — Standard Library & Ecosystem (Days 15–21)
 
-### [ ] Day 15 — Practice + Mocking Basics
-- [ ] Build a small CLI app that models a REST-like resource: e.g. a to-do manager with add/list/delete commands
-- [ ] Focus on writing idiomatic Python, not Java-translated Python
-- [ ] Write tests for your CLI app with `pytest`
-- [ ] `unittest.mock.MagicMock` — mock any object or dependency, like `Mockito.mock()`
-- [ ] `@patch("module.function")` — replace a real function with a mock for a test, like `@MockBean`
-- [ ] Assert mock was called: `mock.assert_called_once_with(arg)` — like `Mockito.verify()`
-- [ ] Mock a file read or external call your CLI makes
+### [x] Day 15 — Practice + Mocking Basics
+- [x] Build a small CLI app that models a REST-like resource: e.g. a to-do manager with add/list/delete commands
+- [x] Focus on writing idiomatic Python, not Java-translated Python
+- [x] Write tests for your CLI app with `pytest`
+- [x] `unittest.mock.MagicMock` — mock any object or dependency, like `Mockito.mock()`
+- [x] `@patch("module.function")` — replace a real function with a mock for a test, like `@MockBean`
+- [x] Assert mock was called: `mock.assert_called_once_with(arg)` — like `Mockito.verify()`
+- [x] Mock a file read or external call your CLI makes
 
 ### [ ] Day 16–17 — Key Standard Library Modules
 - [ ] `os`, `sys` — system/env interaction
